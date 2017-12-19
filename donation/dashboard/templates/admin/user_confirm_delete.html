@@ -1,0 +1,49 @@
+ {% extends "layout/main.html" %}
+
+ {% block content %}
+
+ <div id="page-wrapper">
+
+ 	<div class="container-fluid">
+
+ 		<!-- Page Heading -->
+ 		<div class="row">
+ 			<div class="col-lg-12">
+ 				<h1 class="page-header">
+ 					Dashboard <small>User panel</small>
+ 				</h1>
+ 				<ol class="breadcrumb">
+                            <li class="active">
+                                <a href="{% url 'dashboard' %}">
+                                    <i class="fa fa-home" aria-hidden="true" style="font-size: 17px;color: gray;"></i>
+                                </a> 
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                {{ title }}
+                            </li>
+                        </ol>
+ 			</div>
+ 		</div>
+
+
+ 		<div class="row">
+ 			<div class="col-lg-12">
+ 			{% if not object.same_user %}
+ 				<form action="" method="post">{% csrf_token %}
+ 					<p> Are you sure you want to delete "{{ object }}"?</p>
+ 					<input class='btn btn-default'  type="submit" value="Confirm" />
+ 					<a href="{{ view.get_success_url }}" class="btn btn-default">Cancel</a>
+ 				</form>
+ 			{% else %}
+
+                    <p style="color: red;font-weight: bold"> You can not delete your self </p>
+                  {% endif %}
+
+ 			</div>
+ 		</div>
+
+ 		<!-- /.container-fluid -->
+
+ 	</div>
+ </div>
+
+ {% endblock content %}

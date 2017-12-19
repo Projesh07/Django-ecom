@@ -1,0 +1,11 @@
+<div class="row" style="margin-bottom:0px;">
+    <div class="center section-heading z-depth-3" style="padding:5px;background:white;margin-top:8px;">
+        <i class="fa fa-heart" aria-hidden="true"></i><span>Top Donations</span><i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+    <ul class="collection top-donation z-depth-1" style="height:330px;margin-top:0px;">
+        <li class="collection-item avatar" *ngFor="let top_donation of top_donations">
+        <top-donation donar_name="{{top_donation.user.first_name}}" donate_amount="{{top_donation.amount}}" donate_time="{{top_donation.donate_at}}"></top-donation>
+        </li>
+
+    </ul>
+</div>

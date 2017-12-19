@@ -1,0 +1,60 @@
+ {% extends "layout/main.html" %}
+
+
+
+{% block content %}
+
+
+
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard <small>User panel</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"><a href="{% url 'create_group' %}">Add new Group</a></i> 
+                            </li>
+                        </ol>
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                     <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>List</th>
+                                <th>Group name</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for group in groups %}
+                              <tr>
+                                <td>{{group.id}}</td>
+                                <td>{{group.name}}</td>
+                                <td>Edit/Delete</td>
+                              </tr>
+                            
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                </div>
+            </div>
+
+
+
+            <!-- /.container-fluid -->
+
+        </div>
+        </div>
+
+
+{% endblock content %}
+
+

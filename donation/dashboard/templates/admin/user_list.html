@@ -1,0 +1,79 @@
+ {% extends "layout/main.html" %}
+
+{% load table_tags %}
+
+{% block content %}
+
+
+
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <a href="{% url 'dashboard' %}">
+                                    <i class="fa fa-home" aria-hidden="true" style="font-size: 17px;color: gray;"></i>
+                                </a> 
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                {{ title }}
+                            </li>
+                        </ol>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-sm-3">
+                            <a href="{% url 'create_user' %}">
+                                <button class="btn btn-success  ">
+                                    Add new User
+                                </button>
+                            </a>
+                        </div>
+                    {% render_table admin_table %}
+
+                    
+        <!--              <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>List</th>
+                                <th>User first name</th>
+                                <th>User last name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                              <tr>
+                                <td>{{user.id}}</td>
+                                <td>{{user.first_name}}</td>
+                                <td>{{user.last_name}}</td>
+                                <td>{{user.email}}</td>
+                                <td><i class="fa fa-edit"><a href="{% url 'update_user' id=user.id %}">update</a></i>/<i class="fa fa-delete"><a href="{% url 'delete_user' id=user.id %}">Delete</a></i></td>
+                              </tr>
+                            
+                              {% endfor %}
+                            </tbody>
+                          </table> -->
+                </div>
+            </div>
+
+
+
+            <!-- /.container-fluid -->
+
+        </div>
+        </div>
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,76 @@
+<div class="col s12 m8 l8">
+    <div class="card" *ngIf="campaign">
+        <div class="card-image">
+            <img src="../../assets/img/education.jpg">
+            <span class="card-title tranparency">{{campaign.title}}</span>
+        </div>
+        <div class="card-content" style="padding:10px 24px;    border-bottom: 1px solid #dcdada;">
+            <div class="row" style="margin-bottom:0px;">
+                <div class="col l4">
+                    <div class="donation">
+                        <div class="left" *ngIf="campaign">
+                            <strong>$ {{campaign.amount}} </strong> <span>collected of </span><strong>$ {{campaign.total_donate}}</strong>
+                        </div>
+                    </div>
+                    <div class="progress z-depth-1">
+                        <div class="determinate" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div style="text-align:center" class="col l4">
+                    <a class="waves-effect waves-light btn btn-floating share z-depth-2" style="height:auto"><i class="fa fa-facebook" aria-hidden="true" style="line-height:none"></i></a>
+                    <a class="waves-effect waves-light btn btn-floating share z-depth-2"><i class="fa fa-twitter" aria-hidden="true" style="line-height:none"></i></a>
+                    <a class="waves-effect waves-light btn btn-floating share z-depth-2"><i class="fa fa-google-plus" aria-hidden="true" style="line-height:none"></i></a>
+                </div>
+                <div style="text-align:right" class="col l4">
+                    <a href="campaign.html" class="z-depth-2 details-button waves-effect waves-light hvr-bounce-to-right">Donate Now<i style="font-size:16px; margin-left:5px;" class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card-tabs tab-heading">
+            <ul class="tabs tabs-fixed-width z-depth-1" materialize="tabs">
+                <li class="tab"><a class="active" href="#test4" onclick="return false">STORY</a></li>
+                <li class="tab"><a href="#test5" onclick="return false">DOCUMENTS</a></li>
+                <li class="tab"><a href="#test6" onclick="return false">REPLY</a></li>
+            </ul>
+        </div>
+        <div class="card-content" >
+            <div id="test4" *ngIf="campaign" >
+                <p>
+                    {{campaign.story}}
+                </p>
+
+            </div>
+            <ng-container *ngIf="campaign" >
+            <div id="test5" >
+                <div *ngFor="let document of campaign.documents">
+                      <h1  *ngIf="document.content_type !='image' && document.content_type !='video'"> {{document.content}}</h1>
+
+                        <img *ngIf="document.content_type =='image'" class="materialboxed responsive-img" src="{{document.url}}" alt="Image Not found" />
+                        <video *ngIf="document.content_type =='video'" class="responsive-video" controls>
+                        <source src="../../assets/img/video1.mp4" type="video/mp4">
+                        </video>
+                </div>
+              
+
+            </div>
+            </ng-container>
+            <div id="test6">
+
+                <div class="card-panel" style="background:transparent;padding:0px;box-shadow:none;border-bottom:2px dashed green">
+                    <div class="row valign-wrapper">
+                        <div class="col s1">
+                           <!--  <img src="../../assets/img/profile.jpg" alt="" class="circle responsive-img"> -->
+                            <!-- notice the "circle" class -->
+                        </div>
+                        <div class="col s11">
+                            <span class="black-text">
+                                            This is a square image. Add the "circle" class to it to make it appear circular.
+                                        </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

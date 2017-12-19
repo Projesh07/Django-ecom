@@ -1,0 +1,368 @@
+{% extends "layout/main.html" %}
+{% load i18n %}
+
+{% block style %}
+
+<style type="text/css">
+
+    .tab-step-form .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+    .tab-step-form .nav-stacked > li + li {
+        margin-top: 10px;
+    }
+    .tab-step-form .nav-tabs > li > a {
+        padding: 50px 0px 50px  !important;
+        color: #AAAAAA;
+        background-color: #E3F2FD;
+        border: 0px;
+        border-radius: 0px;
+        margin: 0;
+    }
+    .tab-step-form .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+        background-color: #448AFF; 
+        color: #FFFFFF;
+        z-index: 99;
+        transition: all 0.5s ease 0s;
+    }
+    .tab-step-form .nav-tabs > li.active > a {
+        color: #FFFFFF;
+        background-color: #2962FF;
+        box-shadow: 0 0px 5px rgba(0, 0, 0, .6);
+        z-index: 100;
+    }
+    .tab-step-form .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        color: #FFFFFF;
+        background-color: #2962FF;   
+        box-shadow: 0 0px 5px rgba(0, 0, 0, .6);
+        transition: all 0.5s ease 0s;
+    }
+    .tab-step-form .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 1px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: all 0.5s ease 0s;
+
+    }
+    .tab-step-form .btn-primary {
+        background-color: #2962FF;
+    }
+    .tab-step-form .btn-primary:hover, .btn-primary:focus {
+        background-color: #0D47A1;
+    }
+</style>
+{% endblock style %}
+
+
+{% block content %}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Dashboard
+                </h1>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <a href="{% url 'dashboard' %}">
+                            <i class="fa fa-home" aria-hidden="true" style="font-size: 17px;color: gray;"></i>
+                        </a> 
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        {{ title }}
+                    </li>
+                </ol>
+                <a href="javascript:history.go(-1)">
+                    <button class="btn btn-success">
+                         Cancel
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+            <form action="" enctype="multipart/form-data" id="campaignForm" method="post">
+                {% csrf_token %}
+                <div class="tab-step-form" style="margin-top: 10px">
+                    <div class="row">
+                        <div class="col col-sm-2">
+                            <ul class="nav nav-tabs nav-stacked text-center" role="tablist">
+                                <li class="active" role="presentation">
+                                    <a aria-controls="home" data-toggle="tab" href="#home" role="tab">
+                                        Step One
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a aria-controls="profile" data-toggle="tab" href="#profile" role="tab">
+                                        Step Two
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="col col-sm-10">
+                            <div class="row tab-content">
+                                <div class="tab-pane fade active in" id="home" role="tabpanel">
+                                    <fieldset>
+                                        <div class="col-sm-12">
+                                         <div class="form-group">
+                                            <!-- <label for="title">Title</label> -->
+                                            {{ form.title.errors }}
+                                            {{ form.title.label_tag }}
+                                            {{ form.title }}
+                                            <!-- <input type="text" class="form-control" id="exampleInputName2" placeholder="Name of the Campaign to be created"> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            {{ form.story.errors }}
+                                            {{ form.story.label_tag }}
+                                            {{ form.story }}
+                                            <!-- <textarea class="form-control" rows="12" placeholder="whiteout the detailed story about the campaign"></textarea> -->
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                        
+
+                                            {{ form.start_date.errors }}
+                                            {{ form.start_date.label_tag }}
+                                            <!-- <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe"> -->
+                                            {{ form.start_date }}
+
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            {{ form.end_date.errors }}
+                                            {{ form.end_date.label_tag }}
+                                            <!-- <input type="text" class="form-control" id="enddate" placeholder="Jane Doe"> -->
+                                            {{ form.end_date }}
+                                        </div>                                        
+                                    </div>
+                                    <!-- <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                              <input class="span2" size="16" type="text" value="12-02-2012">
+                                              <span class="add-on"><i class="icon-th"></i></span>
+                                            </div>
+                                        </div>                                        
+                                    </div> -->
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            {{ form.category.errors }}
+                                            {{ form.category.label_tag }}
+                                            {{ form.category }}                                            
+                                        </div>                                        
+                                   </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            {{ form.amount.errors }}
+                                            {{ form.amount.label_tag }}
+                                            <!-- <input type="text" class="form-control" id="amount" placeholder="Amount"> -->
+                                            {{ form.amount }}   
+                                       </div>                                        
+                                   </div>
+                                   <div class="col-sm-12">
+                                     <div class="form-group">
+                                        <label for="tags">Tags:</label>
+                                        <select class="form-control" id="tag_select" multiple="multiple" name="tags_val[]">
+                                            {% for tag in tags%}
+                                            <option value="{{tag.id}}">
+                                                {{ tag|lower }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 ">
+                                        <ul class="list-inline pull-right" style="margin-left: 195px;">
+                                            
+                                            <li>
+                                                <button class="btn btn-info next-step" type="button">
+                                                    Next
+                                                </button>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel">
+
+                           <fieldset>
+
+                                <div class="col-sm-12">
+
+                                    <div class="form-group">
+                                        <label for="files"> Upload Images: </label>
+
+                                        <div id="picture">
+                                            <div style="display:table;">
+                                                <div class="one-photo">
+                                                    <input id="image[]" class="fileUpload upload" type="file" name="image[]" multiple/>
+                                                    <div class="removePhoto">x</div>
+                                                    <i class="fa fa-plus" style="margin-top: 25px;"></i>
+                                                    <div class="preview"></div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">       
+                                        <label for="files">
+                                            Upload other files:
+                                        </label>
+                                        <div id="picture">
+                                            <div style="display:table;">
+                                                <div class="one-photo">
+                                                    <input id="document[]" class="fileUpload upload" type="file" name="document[]" multiple/>
+                                                    <div class="removePhoto">x</div>
+                                                    <i class="fa fa-plus" style="margin-top: 25px;"></i>
+                                                    <div class="preview"></div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">  
+                                        <label for="files">
+                                            Upload linkes:
+                                        </label>
+                                        <div class="container1">
+                                            <button class="add_form_field btn btn-primary " type="button">
+                                                Add New Field
+                                                <span style="font-size:16px; font-weight:bold;">
+                                                    +
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12 ">
+                                            <ul class="list-inline pull-right" style="margin-left: 195px;">
+                                                <li>
+                                                    <button class="btn btn-info prev-step" type="button">
+                                                        Previous
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-primary" type="submit">
+                                                        Save
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                            
+                            </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".next-step").click(function (e) {
+
+            var $active = $('.nav-tabs li.active');
+            $active.next().removeClass('disabled');
+            nextTab($active);
+
+        });
+        $(".prev-step").click(function (e) {
+
+            var $active = $('.nav-tabs li.active');
+            prevTab($active);
+
+        });
+
+        // dropify ..
+        $('.dropify').dropify();
+
+        // custome file upload event handler
+        $('.removePhoto').click(function (){
+            $(this).parent('.one-photo').remove();
+        });
+
+        $('.fileUpload').change(function (){
+            // alert('yo')
+            attachFileReader(this);
+        });
+
+        $("#campaignForm").validate();
+
+        // date range picker 
+        // var nowTemp = new Date();
+        // var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+         
+        // var checkin = $('input[name="start_date"]').datepicker({
+        //   onRender: function(date) {
+        //     return date.valueOf() < now.valueOf() ? 'disabled' : '';
+        //   }
+        // }).on('changeDate', function(ev) {
+        //   if (ev.date.valueOf() > checkout.date.valueOf()) {
+        //     var newDate = new Date(ev.date)
+        //     newDate.setDate(newDate.getDate() + 1);
+        //     checkout.setValue(newDate);
+        //   }
+        //   checkin.hide();
+        //   $('input[name="end_date"]')[0].focus();
+        // }).data('datepicker');
+        // var checkout = $('input[name="end_date"]').datepicker({
+        //   onRender: function(date) {
+        //     return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        //   }
+        // }).on('changeDate', function(ev) {
+        //   checkout.hide();
+        // }).data('datepicker');
+
+        
+
+        // ended datepicker
+
+    });
+    function nextTab(elem) {
+        $(elem).next().find('a[data-toggle="tab"]').click();
+    }
+    function prevTab(elem) {
+        $(elem).prev().find('a[data-toggle="tab"]').click();
+    }
+
+
+</script>
+{% endblock script %}

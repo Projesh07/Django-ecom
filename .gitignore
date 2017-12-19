@@ -1,0 +1,4 @@
+*.pyc
+donation/donation/local_settings.py
+media_cdn/
+.idea/*

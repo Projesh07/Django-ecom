@@ -1,0 +1,13 @@
+<div class="container" style="width:75%;padding-top: 250px;">
+    <div class="center section-heading">
+        <i class="fa fa-heart" aria-hidden="true"></i><span>Explore the Category</span><i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+    <div class="row" style="margin-top:20px;" >
+        <div class="col l3" *ngFor="let category of categories">
+        	
+            <app-category-small-component name="{{category.name}}" image="{{category.image}}" href=""></app-category-small-component>  
+        	
+        </div>
+        
+    </div>
+</div>

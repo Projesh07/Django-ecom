@@ -1,0 +1,11 @@
+<div class="container" style="width:75%">
+    <div class="center section-heading">
+        <i class="fa fa-heart" aria-hidden="true"></i><span>Our Campaign</span><i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+    <div class="row">
+    	<div class="col s12 m6 l6" *ngFor="let campaign of campaigns">
+
+        <app-campaign-box-component campaign_id={{campaign.slug}} campaign_title={{campaign.title}} campaign_story={{campaign.story}} campaign_amount={{campaign.amount}} campurl="../../campdetails/"> </app-campaign-box-component>
+        </div>
+    </div>
+</div>

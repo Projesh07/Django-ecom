@@ -1,0 +1,10 @@
+<div class="container" style="width:75%">
+    <div class="center section-heading">
+        <i class="fa fa-heart" aria-hidden="true"></i><span>Categories</span><i class="fa fa-heart" aria-hidden="true"></i>
+    </div>
+    <div class="row category">
+        <div class="col s12 m4 l4 item" *ngFor="let category of categories">
+            <categorybox name="{{category.name}}" description="{{category.descriptions}}" cid={{category.id}} url="categories/{{category.id}}" image="{{category.image}}"></categorybox>
+        </div>
+    </div>
+</div>

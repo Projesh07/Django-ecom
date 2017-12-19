@@ -1,0 +1,21 @@
+.top-donation::-webkit-scrollbar {
+    width: 5px;
+}
+
+.top-donation::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 0px;
+}
+
+.top-donation::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.top-donation {
+    overflow: hidden;
+}
+
+.top-donation:hover {
+    overflow-y: scroll;
+}

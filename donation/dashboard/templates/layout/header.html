@@ -1,0 +1,92 @@
+{% load staticfiles %}
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet">
+   
+
+    <!-- Custom CSS -->
+    <link href="{% static 'dashboard/css/sb-admin.css' %}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'dashboard/css/plugins/morris.css' %}" rel="stylesheet">
+
+    <link href="{% static 'dashboard/css/jquery_step.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <link href="{% static 'dashboard/css/tagit.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'dashboard/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    
+    <!-- jQuery -->
+
+    <script src="{% static 'dashboard/js/jquery.js' %}"></script>
+<!-- <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+    <link href="{% static 'dashboard/css/site.css' %}" rel="stylesheet">
+
+    <link href="{% static 'dashboard/css/dropify.css' %}" rel="stylesheet">
+    <script src="{% static 'dashboard/js/dropify.js' %}"></script>
+
+    <link href="{% static 'dashboard/css/datepicker.css' %}" rel="stylesheet" /> 
+    <script src="{% static 'dashboard/js/bootstrap-datepicker.js' %}"></script> 
+        
+    <script type="text/javascript">
+
+        var BASE_URL = "http://{{ request.get_host }}/";
+
+        $(function(){
+            
+            //date range picker 
+            var nowTemp = new Date();
+            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+             
+            var checkin = $('#id_start_date').datepicker({
+              onRender: function(date) {
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+              }
+            }).on('changeDate', function(ev) {
+              if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.setValue(newDate);
+              }
+              checkin.hide();
+              $('#id_end_date')[0].focus();
+            }).data('datepicker');
+            var checkout = $('#id_end_date').datepicker({
+              onRender: function(date) {
+                return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+              }
+            }).on('changeDate', function(ev) {
+              checkout.hide();
+            }).data('datepicker');
+              
+            // making perfect position.. 
+            $('#id_start_date').on('focus',function(){
+                var top = $(this).outerHeight(true) + $(this).offset().top
+                $(".datepicker").css({ 'top' : top})
+            });
+            $('#id_end_date').on('focus',function(){
+                var top = $(this).outerHeight(true) + $(this).offset().top
+                $(".datepicker").css({ 'top' : top})
+            });
+        });
+
+    </script>
+
+
+</head>

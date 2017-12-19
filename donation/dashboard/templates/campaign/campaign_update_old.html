@@ -1,0 +1,140 @@
+ {% extends "layout/main.html" %}
+{% load i18n %}
+
+
+{% block content %}
+
+
+
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard <small>User panel</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard">{{title}}</i> 
+                            </li>
+                        </ol>
+                    </div>
+                    </div>
+       
+
+                  <div class="row">
+                    <div class="col-lg-12">
+
+<form id="example-advanced-form"  method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+    
+    <h4 class="col-md-4">Step one</h4>
+    <fieldset>
+        <legend>Step one</legend>
+
+        <div class="form-group">
+           {{form.as_p}}
+
+<label for="tags">Tags:</label>
+
+
+     <select class="form-control " name="tags_val[]" id="tag_select" multiple="multiple">
+       
+
+       
+
+        {% for tag in tags%}
+
+       {% for camp_tag in camp_tags%}
+
+       selected=""
+
+       {% if camp_tag.tag_id == tag.id %}
+
+
+
+           selected="selected"
+
+           {% endif %}
+           {% endfor %}
+
+
+      
+
+        <option value="{{tag.id}}" selected="{{selected}}"> {{ tag|lower }}</option>
+
+        
+          {% endfor %}
+
+     </select>     
+
+ <!-- <input id="myTags" type="text" class='col-lg-12' name="tags"> -->
+
+
+
+        </div>
+      
+    </fieldset>
+ 
+    <h4>Step two</h4>
+    <fieldset>
+        <legend>Step two</legend>
+ <!-- 
+       <div class="form-group">
+       <input type="text" name="document" class="form-control">
+        </div>
+  -->
+
+        
+      <div class="row">
+      <div class="col-lg-12">
+      <label for="files">Upload Images:</label>           
+      <input type="file" class="col-lg-12" name="image[]" multiple id="gallery-photo-add">
+      <div class="gallery">
+      </div>
+
+      <div class="row">
+      <div class="col-lg-12">
+      <label for="files">Upload other files:</label>           
+      <input type="file" class="col-lg-12" name="document[]" multiple id="gallery-file-add">
+      <div class="file-gallery">
+      </div>
+
+<br>
+
+      <div class="row">
+      <div class="col-lg-12">
+ <label for="files">Upload linkes:</label>  
+ <div class="container1">
+
+   <button class="add_form_field" type="button">Add New Field &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
+  
+        </div>
+  </div>
+
+        
+        
+
+
+
+    </fieldset>
+ 
+
+
+
+</form>
+
+                </div>
+            </div>
+
+            <!-- /.container-fluid
+
+        </div>
+        </div>-->
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,182 @@
+ {% extends "layout/main.html" %}
+
+
+
+{% block content %}
+
+
+
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <a href="{% url 'dashboard' %}">
+                                    <i class="fa fa-home" aria-hidden="true" style="font-size: 17px;color: gray;"></i>
+                                </a> 
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                {{ title }}
+                            </li>
+                        </ol>
+                        <a href="{% url 'list_campaign' %}">
+                            <button class="btn btn-success">
+                                 Back
+                            </button>
+                        </a>
+                    </div>
+                    </div>
+                    <div class="tab-step-form" style="margin-top: 10px">
+                    <div class="row">
+                        <div class="col col-sm-12">
+                            <div class="row tab-content">
+                                <div class="tab-pane fade active in" id="home" role="tabpanel">
+                                    <fieldset>
+                                        <div class="col-sm-12">
+                                         <div class="form-group">
+                                            <h2>{{object.title}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-group storyarea">
+                                        {{object.story}}     
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                        
+                                            <label>From: </label>
+                                            {{object.start_date}}
+
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>To: </label>
+                                            {{object.end_date}}
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Category: </label>
+                                            {{object.category}}                                            
+                                        </div>                                        
+                                   </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Amount: </label>
+                                            {{object.amount}}  
+                                       </div>                                        
+                                   </div>
+                                   <div class="col-sm-12">
+                                     <div class="form-group">
+                                        <label for="tags">Tags:</label>
+                                        
+                                        {% for tag in object.tags.all %}
+                                           
+                                           <span style="background-color: whitesmoke;border-radius: 5px;margin-left: 5px; padding: 5px">
+                                                <i class="fa fa-tag" aria-hidden="true" style="font-size: 12px"></i>
+                                                <span>{{ tag.name }}</span>                                        
+                                           </span>
+                                                                                       
+                                        {% endfor %} 
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12">
+
+                                    <div class="form-group">
+                                        <label for="files"> Photos: </label>
+
+                                        <div id="picture">
+                                            <div style="display:table;">
+                                                {% for file in documents %}
+                                                    {% if file.content_type == "image" %}                                                    
+                                                        <div class="one-photo">
+                                                            <div class="preview" style="margin-top: 0">
+                                                                <img src="{{ file.url }}" width="100%">
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}                                                
+                                                {% endfor %}
+
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">       
+                                        <label for="files">
+                                            Upload other files:
+                                        </label>
+                                        <div id="picture">
+                                            <div style="display:table;">
+
+                                                {% for file in documents %}
+                                                    {% if file.content_type == "file" %}   
+                                                        <a href="{{setting.BASE_URL}}{{file.url}}" target="_blank">                                                 
+                                                            <div class="one-photo">
+                                                                <div class="preview"  style="margin-top: 0">
+                                                                    <img src="https://lh4.ggpht.com/-wROmWQVYTcjs3G6H0lYkBK2nPGYsY75Ik2IXTmOO2Oo0SMgbDtnF0eqz-BRR1hRQg=w300" width="">
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    {% endif %}                                                
+                                                {% endfor %} 
+
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">  
+                                        <label>linkes:</label>
+                                        <div class="container1">
+                                            
+                                            {% for file in documents %}
+                                                {% if file.content_type == "link" %} 
+                                                    <a href="{{file.content}}" target="_blank">{{file.content}}</a><br>
+                                                {% endif %}                                                
+                                            {% endfor %} 
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                            
+                            </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-lg-12">
+
+                    <p><span><label>Campaign name:</label> {{object.title}} </span></p>
+
+                    <p><span><label>Campaign story:</label> {{object.story}} </span></p>
+                    <p><span><label>Campaign amount:</label> {{object.amount}} </span></p>
+                    <p><span><label>Campaign start date:</label> {{object.start_date}} </span></p>
+                    <p><span><label>Campaign end date:</label> {{object.end_date}} </span></p>
+                    <p><span><label>Campaign published date:</label> {{object.publish_date}} </span></p>
+           
+                </div> -->
+            </div>
+
+            <!-- /.container-fluid -->
+
+        </div>
+        </div>
+
+
+{% endblock content %}
+
+

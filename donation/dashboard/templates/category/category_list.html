@@ -1,0 +1,46 @@
+ {% extends "layout/main.html" %}
+<!-- {% load static %} -->
+{% load table_tags %}
+{% block content %}
+
+
+
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <a href="{% url 'dashboard' %}">
+                                    <i class="fa fa-home" aria-hidden="true" style="font-size: 17px;color: gray;"></i>
+                                </a> 
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                {{ title }}
+                            </li>
+                        </ol>
+                        <a href="{% url url_create %}">
+                            <button class="btn btn-success">
+                                 Create
+                            </button>
+                        </a>
+     
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                     {% render_table categories %}
+
+
+        </div>
+        </div>
+
+
+{% endblock content %}
+
+

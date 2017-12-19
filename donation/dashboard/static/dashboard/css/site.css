@@ -1,0 +1,129 @@
+/*.container{
+    margin-top:20px;
+}*/
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+
+/*
+* custom file upload css 
+*/
+
+#picture {
+    /*display: none;*/
+    padding: 10px;
+    /*/ / background: #d8d8d8;*/
+    /*/ / max-height: 510 px;*/
+    /*/ / overflow-y: auto;*/
+}
+
+.one-photo .fa-plus {
+    margin-top: 35px !important;
+    position: absolute;
+    top: 25px;
+    left: 45%;
+}
+
+.removePhoto {
+    z-index: 100;
+    position: absolute;
+    text-align: right;
+    margin-right: 5px;
+    top: 5px;
+    right: 5px;
+}
+
+.one-photo {
+    text-align: center;
+    color: #ccc;
+    font-size: 13pt;
+}
+.one-photo {
+    width: 130px;
+    height: 130px;
+    text-align: center;
+    margin-top: 10px;
+    border: 2px dashed #ccc;
+    color: #ccc;
+    font-size: 13pt;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.fileUpload {
+    z-index: 10;
+    margin-top: 0px;
+    opacity: 0;
+    height: 100px;
+    position: absolute;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.preview {
+    position: absolute;
+    float: left;
+    margin-top: -122px;
+    width: 130px;
+    margin-left: -2px;
+    height: 130px;
+}
+
+.preview img {
+    width: 130px !important;
+    height: 130px;
+}
+
+.delete {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-left: 5px;
+    color: red;
+}
+
+.storyarea {
+    min-height: 150px;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tick {
+    font-size: 25px;
+    color: green;
+}
+
+.cross {
+    font-size: 25px;
+    color: #f04141;
+}
+.grey {
+    font-size: 25px;
+    /*color: grey;*/
+    color: #61656b;
+}

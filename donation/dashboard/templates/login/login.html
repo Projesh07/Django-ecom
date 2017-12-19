@@ -1,0 +1,95 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet">
+   
+
+    <!-- Custom CSS -->
+    <link href="{% static 'dashboard/css/sb-admin.css' %}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'dashboard/css/plugins/morris.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'dashboard/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    </head>
+<body>
+
+    <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="loginform" class="form-horizontal" method="POST" action=" " role="form" novalidate> {% csrf_token %}
+                                    
+                    
+                                   {{form.as_p}}
+
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <input id="btn-login" type="submit" class="btn btn-success" value="Login" /> 
+
+
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                     
+
+
+                                    </div>
+
+                                </div>
+
+                                
+
+                            </form>     
+
+
+
+                        </div>                     
+                    </div>  
+        </div>
+    
+    </div>
+
+
+    <
+
+  <script src="{% static 'dashboard/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="{% static 'dashboard/js/plugins/morris/raphael.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/plugins/morris/morris.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/plugins/morris/morris-data.js' %}"></script>
+
+</body>
+
+</html>

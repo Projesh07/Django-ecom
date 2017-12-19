@@ -1,0 +1,84 @@
+ {% extends "layout/main.html" %}
+
+
+
+{% block content %}
+
+
+
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard <small>User panel</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"><a href="{% url url_create %}">{{title}}</a></i> 
+                            </li>
+                        </ol>
+                        <form method="GET" action="">
+                        <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                            <input class="form-control" type="text" name="search" placeholder="search product" value="{{request.GET.search}}">
+                            <span class="input-group-btn">
+                            <input class=" btn btn-default" type="submit"  value="search">
+                            </span>
+                            </div>
+                        </div>
+                        </div>
+                        </form>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                        
+                            </li>
+                        </ol>
+
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                     <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>List</th>
+                                <th>Category name</th>
+                                <th>Image</th>
+                                <th>Descriptions</th>
+                                <th>Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for menu in menus %}
+                              <tr>
+                                <td>{{menu.id}}</td>
+                                <td>{{menu.name}}</td>
+                                <td>{% if menu.image %}
+      <img src="{{menu.image.url}}" class="img-responsive" style="height: 100px;width:100px" />
+    {% endif %}  </td>
+                                <td>{{menu.descriptions}}</td>
+                                <td><i class="fa fa-edit"><a href="{% url url_update id=menu.id %}">update</a></i>/<i class="fa fa-delete"><a href="{% url url_delete id=menu.id %}">Delete</a></i></td>
+                              </tr>
+                            
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                </div>
+            </div>
+
+
+
+            <!-- /.container-fluid -->
+
+        </div>
+        </div>
+
+
+{% endblock content %}
+
+

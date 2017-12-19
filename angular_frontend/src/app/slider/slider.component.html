@@ -1,0 +1,38 @@
+<div class="slider" materialize="slider" >
+    <ul class="slides">
+        <li>
+            <img src="../../assets/img/charity.jpg">
+            <div class="caption left-align">
+                <!--<h3>Left Aligned Caption</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>-->
+            </div>
+        </li>
+        <li>
+            <img src="../../assets/img/donation.jpg" />
+            <div class="caption left-align">
+                <!--<h3>Left Aligned Caption</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>-->
+            </div>
+        </li>
+        <li>
+            <img src="../../assets/img/together.jpg" />
+            <div class="caption left-align">
+                <!--<h3>Left Aligned Caption</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>-->
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".button-collapse").sideNav();
+        $('.slider').slider({
+            interval: 3000,
+            transition: 800,
+            height: 550,
+            indicators: false,
+        });
+        
+        $('.scrollspy').scrollSpy();
+    });
+</script>

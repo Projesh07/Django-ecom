@@ -1,0 +1,17 @@
+.card-content {
+    padding: 0px 20px!important;
+}
+
+.card-content p {
+    font-size: 12PX;
+    padding-bottom: 10px;
+}
+
+.card-title {
+    font-size: 16px!important;
+}
+
+.card-action {
+    padding: 5px 20px!important;
+    /*background-color:#5dae1f!important;*/
+}

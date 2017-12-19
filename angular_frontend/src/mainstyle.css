@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css?family=Sigmar+One');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+#sidenav-overlay {
+    position: static;
+}
+
+body {
+    background: #f3f3f3;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+nav a {
+    color: #5dae1f;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.side-nav li>a:hover {
+    background-color: rgb(94, 175, 33);
+}
+
+nav ul a {
+    color: #5dae1f;
+}
+
+.category i:hover {
+    transition: 1s ease-in-out;
+}
+
+nav ul a:hover {
+    /*background-color: rgb(93, 174, 31);*/
+    color: white;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -ms-transform: scale(1.1, 1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1, 1);
+    /* Safari */
+    transform: scale(1.1, 1);
+    /*box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);*/
+}
+
+
+/*nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i{
+     line-height: initial!important;
+    height: inherit!important;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{
+    border-radius: 50%;
+    border: 1px solid green;
+    margin-top: 10px;
+    padding: 5px;
+    line-height: initial!important;
+    height: inherit!important;
+}*/
+
+nav ul li {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.navbar-fixed nav {
+    border-bottom: 3px solid #5dae1f;
+}
+
+.slider .slides img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-animation: animate 20s;
+    /* Chrome, Safari, Opera */
+    animation: animate 2000;
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
+}
+
+@-webkit-keyframes animate {
+    from {
+        background-position: bottom center;
+        background-size: cover;
+    }
+    to {
+        background-position: top center;
+        background-size: cover;
+    }
+}
+
+.each-title {
+    background-color: rgba(249, 247, 247, 0.4)!important;
+    color: #0c6f10 !important;
+    font-weight: 900 !important;
+    font-size: 60px !important;
+}
+
+.c-title {
+    background-color: rgba(249, 247, 247, 0.4)!important;
+    color: #5dae1f !important;
+    font-weight: 900 !important;
+}
+
+.camp-post {
+    background-color: #5dae1f;
+}
+
+.section-heading {
+    font-size: 24px;
+    padding-top: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.progress .determinate {
+    background-color: #5dae1f;
+}
+
+.progress {
+    margin: 0;
+    height: 10px;
+    background-color: #eaeaea;
+    border-radius: 1.25rem;
+}
+
+.pulse {
+    overflow: initial;
+    position: relative;
+}
+
+.donation div {
+    margin-top: -6px;
+}
+
+.donation div strong {
+    color: #5dae1f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.donation div span {
+    font-size: 12px;
+}
+
+.section-heading i {
+    color: #5dae1f;
+}
+
+.section-heading span {
+    padding: 0px 10px;
+}
+
+.promo img {
+    width: 60% !important;
+    /*left: 20% !important;*/
+    top: 0px !important;
+    margin-top: 10px;
+}
+
+.height-fix {
+    height: 200px !important;
+}
+
+.promo-caption {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn {
+    background-color: #5dae1f;
+}
+
+.btn-floating i {
+    font-size: 2.1rem;
+    /* line-height: 50px;*/
+}
+
+
+/*
+.btn-floating {
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+}
+*/
+
+h5 {
+    margin: -0.98rem 0 .656rem 0;
+}
+
+.donatebtn {
+    display: block;
+    margin: 0px auto;
+    width: 30%;
+    margin-top: 20px;
+}
+
+.cardo {
+    border: 2px solid #5dae1f;
+}
+
+.carousel .carousel-item {
+    width: 100% !important;
+    height: 400px !important;
+    object-fit: cover;
+}
+
+.camp-text span {
+    font-size: 40px;
+    color: #81c784;
+}
+
+.camp-bold {
+    font-size: 90px;
+    font-family: 'Sigmar One', cursive;
+    color: #5dae1f;
+}
+
+h2 {
+    margin: 0px;
+}
+
+.tab-heading .tabs .tab a {
+    color: #5dae1f !important;
+    font-weight: 700;
+}
+
+.tabs .indicator {
+    height: 4px !important;
+}
+
+.tab-heading .tabs .indicator {
+    background-color: #5dae1f !important;
+}
+
+.top-donation li {
+    min-height: 50px !important;
+}
+
+.collection-item .title {
+    color: #5dae1f;
+    font-weight: 700;
+}
+
+.brand-logo img {
+    height: 60px;
+}
+
+.share i {
+    font-size: 1.2rem!important;
+    color: #5dae1f;
+    background: white;
+}
+
+.share i:hover {
+    color: white;
+    background: #5dae1f;
+    transition: .5s;
+}
+
+#test4 p {
+    padding-bottom: 10px;
+}
+
+#test5 img {
+    margin: 0px auto;
+    padding-bottom: 10px;
+}
+
+.sidecol {
+    color: #0c6f10;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.page-footer {
+    padding-top: 0px!important;
+    background-color: #5dae1f!important;
+    border-top: 2px solid #5dae1f;
+}
+
+.page-footer h5 {
+    font-weight: 700;
+    color: #5dae1f;
+}

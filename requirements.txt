@@ -1,6 +1,6 @@
 certifi==2017.7.27.1
 chardet==3.0.4
-Django==1.11.3
+Django==1.11.29
 django-allauth==0.33.0
 django-datatable==0.3.1
 django-formtools==2.0
